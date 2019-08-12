@@ -1,4 +1,4 @@
-import react, { createContext } from "react";
+import { createContext } from "react";
 
 const ProductContext = createContext();
 
