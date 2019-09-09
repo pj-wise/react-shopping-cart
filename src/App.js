@@ -13,12 +13,24 @@ function App() {
   const [products] = useState(data);
   const [cart, setCart] = useState([]);
 
+  console.log(cart);
+
   const addItem = item => {
     setCart([...cart, item]);
   };
 
+  const removeItem = id => {
+    cart.map((item, i) => {
+      if (id === item.id) {
+        let newCart = [...cart];
+        newCart.splice(i, 1);
+        setCart(newCart);
+      }
+    });
+  };
+
   return (
-    <ProductContext.Provider value={{ products, addItem }}>
+    <ProductContext.Provider value={{ products, addItem, removeItem }}>
       <CartContext.Provider value={cart}>
         <div className='App'>
           <Navigation />
