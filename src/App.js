@@ -1,4 +1,4 @@
-import React, { useState, createContext } from "react";
+import React, { useState } from "react";
 import { Route } from "react-router-dom";
 import data from "./data";
 
@@ -29,9 +29,14 @@ function App() {
     });
   };
 
+  //with filter if ID's were all different it WOULD be functional.
+  // const removeItem = id => {
+  //   setCart(cart.filter(item => item.id !== id));
+  // };
+
   return (
-    <ProductContext.Provider value={{ products, addItem, removeItem }}>
-      <CartContext.Provider value={cart}>
+    <ProductContext.Provider value={{ products, addItem }}>
+      <CartContext.Provider value={{ cart, removeItem }}>
         <div className='App'>
           <Navigation />
 
